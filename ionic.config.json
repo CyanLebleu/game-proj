@@ -1,0 +1,7 @@
+{
+  "name": "gameProj",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
