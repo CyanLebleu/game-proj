@@ -25,3 +25,19 @@
 #container a {
   text-decoration: none;
 }
+
+ion-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ion-grid{
+  height: 100%;
+}
+ion-row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

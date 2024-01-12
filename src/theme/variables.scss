@@ -74,6 +74,22 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** questions badge **/
+  --ion-color-questions-chip: #A7C6DA;
+
+  /** coins badge **/
+  --ion-color-coins-chip: #F1DB4B;
+
+  /** XP badge **/
+  --ion-color-xp-chip: #CDEB8B;
+
+  /** statement **/
+  --ion-color-statement: #D7F4EE;
+
+  /** option chip **/
+  --ion-color-option-chip: #3AAFC5;
+
 }
 
 @media (prefers-color-scheme: dark) {
