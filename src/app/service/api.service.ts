@@ -3,33 +3,33 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Series } from '../model/series.model';
 import { Token } from '../model/token.model';
+import { environment } from 'src/environments/environment';
+import { Category } from '../model/category.model';
+import { numberOfQuestions } from '../config/game.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  private API_URL = 'https://opentdb.com/api.php?amount=10&category=11&type=multiple&token='
-  private API_TOKEN_URL = 'https://opentdb.com/api_token.php?command=request'
-  private SESSION_TOKEN = ''
+  private SESSION_TOKEN = '&token=';
 
   constructor(private http: HttpClient) { }
 
-  getToken() {
-    this.http.get<Token>(this.API_TOKEN_URL).subscribe((data) => this.SESSION_TOKEN = data.token);
+  public getToken() {
+    this.http.get<Token>(environment.tokenURL).subscribe((data) => this.SESSION_TOKEN += data.token);
   }
 
-  getQuestions(): Observable<Series> {
-    return this.http.get<Series>(this.API_URL)
+  public getQuestions(): Observable<Series> {
+    return this.http.get<Series>(environment.baseURL + numberOfQuestions.default)
   }
 
-  getQuestionsWithTracking(): Observable<Series> {
-    return this.http.get<Series>(this.API_URL + this.SESSION_TOKEN)
+  public getQuestionsWithTracking(): Observable<Series> {
+    return this.http.get<Series>(environment.baseURL + numberOfQuestions.default + this.SESSION_TOKEN)
   }
 
-
-
-
-
-
+  public getTriviaCategories(): Observable<Array<Category>> {
+    return this.http.get<Array<Category>>(environment.categoryURL)
+  }
+  
 }

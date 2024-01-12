@@ -37,10 +37,15 @@ export class PlaySessionPage implements OnInit {
 
   ngOnInit() {
     this.api.getToken();
-    this.api.getQuestionsWithTracking().subscribe((series) => {
-      this.series = series
-      this.buildOptions();
-    })
+    this.api.getQuestionsWithTracking().subscribe({
+      next: (series) => {
+        this.series = series
+        this.buildOptions();
+      },
+
+      error: (e: Error) => console.log(e)
+      
+    }, )
   }
 
   private buildOptions = () => {
