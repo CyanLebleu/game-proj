@@ -1,0 +1,56 @@
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-grid>
+      <ion-row>
+        <ion-chip class="chip-hud questions-chip">
+          <ion-label class="chip-label">
+            Questions <br><b>{{currentQuestion +1}}/10</b>
+          </ion-label>
+        </ion-chip>
+        <ion-chip class="chip-hud coins-chip">
+          <ion-label class="chip-label">
+            Coins <br><b>{{coins}}</b>
+          </ion-label>
+        </ion-chip>
+        <ion-chip class="chip-hud xp-chip">
+          <ion-label class="chip-label">
+            XP <br><b>{{xp}}</b>
+          </ion-label>
+        </ion-chip>
+      </ion-row>
+    </ion-grid>
+  </ion-header>
+  <ion-list-header>
+    <ion-chip class="round-chip statement">?</ion-chip>
+    <ion-label class="label-statement" [innerHTML]="statement"></ion-label>
+  </ion-list-header>
+  <ion-list lines="none" id="list" *ngFor="let answer of options">
+    <ion-item>
+      <ion-button class="answer-button" expand="full" fill="clear"
+      [disabled]="!answer.enabled" (click)="chooseAnswer(answer)">
+          <ion-chip class="round-chip answer">{{options.indexOf(answer) + 1 }}</ion-chip>
+        <ion-label class="label-answer" [innerHTML]="answer.text"></ion-label>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-footer>
+    <ion-grid>
+      <ion-row>
+        <ion-button shape="round" class="button-actions" fill="outline" color="primary" [routerLink]="['/']">
+          <ion-icon name="exit"></ion-icon>
+          EXIT
+        </ion-button>
+        <ion-button shape="round" class="button-actions" [disabled]="hints == 0 || hintTaken" (click)="hint()">
+          <ion-icon name="bulb"></ion-icon>
+          HINT
+          <ion-badge id="badge" color="danger">{{hints}}</ion-badge>
+        </ion-button>
+        <ion-button class="button-actions" [disabled]="skips == 0 || currentQuestion == 8" shape="round" (click)="skip()">
+          <ion-icon name="play-skip-forward"></ion-icon>
+          SKIP
+          <ion-badge id="badge" color="danger">{{skips}}</ion-badge>
+        </ion-button>
+      </ion-row>
+    </ion-grid>
+  </ion-footer>
+</ion-content>

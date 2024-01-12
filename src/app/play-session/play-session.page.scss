@@ -1,0 +1,85 @@
+#list {
+    background-color: lightgrey;
+}
+
+#badge {
+    margin-left: 1rem;
+}
+
+.round-chip {
+    border-radius: 50px;
+    border-width: 0.5rem;
+    border-color: whitesmoke;
+    border-style: solid;
+    color: white;
+    margin: 1rem;
+    height: 4rem;
+    width: 4rem;
+    justify-content: space-evenly;
+    text-align: center;
+    font-weight: 700;
+    font-size: larger;
+}
+
+.statement {
+    background: var(--ion-color-danger-tint);
+}
+
+.answer {
+    background: var(--ion-color-option-chip);
+}
+
+.label-answer, .label-statement {
+    font-size: large;
+    font-weight: 500;
+    text-transform: none;
+
+}
+
+ion-list-header {
+    --background: var(--ion-color-statement);
+}
+
+ion-item {
+    margin: 0.1rem 0.5rem;
+    border-radius: 8px;
+    background-color: lightgrey;
+}
+
+ion-icon {
+    margin: 0.3rem;
+}
+
+#questions-header {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+
+.chip-hud, .button-actions {
+    justify-content: space-evenly;
+    flex: 1;
+    margin: 1rem;
+    padding: 0.3rem;
+}
+
+.questions-chip {
+    background: var(--ion-color-questions-chip);
+}
+
+.coins-chip {
+    background: var(--ion-color-coins-chip);
+}
+
+.xp-chip {
+    background: var(--ion-color-xp-chip);
+}
+
+.chip-label {
+    text-align: center;
+}
+
+.answer-button {
+    text-align: start;
+    flex: 1;
+}
